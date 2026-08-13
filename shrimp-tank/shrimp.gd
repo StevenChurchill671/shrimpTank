@@ -1,9 +1,10 @@
 extends CharacterBody3D
 var speed = 2
 var target : Vector3 
-
+var selfColour 
 func _ready() -> void:
 	target=self.global_position
+	selfColour=$shrimp/Cube.get_surface_override_material(0).duplicate()
 func _process(delta: float) -> void:
 	if !is_inside_tree():
 		return
@@ -41,11 +42,5 @@ func newBehave():
 	if newNumb == 5:
 		moveMinusZ()
 
-
-
-
-
-func _on_area_3d_mouse_entered() -> void:
-	var myMaterial = $shrimp/Cube.get_surface_override_material()
-	myMaterial.albedo_color = Color(0.965, 0.0, 0.0, 1.0)
-	
+func changeColour(colour):
+	selfColour.albedo_color = colour

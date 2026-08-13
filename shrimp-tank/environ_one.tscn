@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cluomp26ey2vp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v1e44"]
+
+[sub_resource type="Sky" id="Sky_ssxxy"]
+sky_material = SubResource("ProceduralSkyMaterial_v1e44")
+
+[sub_resource type="Environment" id="Environment_mucsj"]
+background_mode = 2
+sky = SubResource("Sky_ssxxy")
+
+[node name="environOne" type="WorldEnvironment" unique_id=1416270501]
+environment = SubResource("Environment_mucsj")

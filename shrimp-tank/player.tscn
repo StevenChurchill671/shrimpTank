@@ -6,3 +6,7 @@
 script = ExtResource("1_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=368120725]
+
+[node name="mouseCast3D" type="RayCast3D" parent="." unique_id=1892205937]
+target_position = Vector3(0, 0, -5)
+collide_with_areas = true

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://se3ol7h6m41f" path="res://tank_one.tscn" id="1_pq8q7"]
 [ext_resource type="PackedScene" uid="uid://d0x2plgdvql6h" path="res://shrimp_spawner.tscn" id="1_pyidc"]
 [ext_resource type="PackedScene" uid="uid://dyw18dqamh3ic" path="res://player.tscn" id="3_vvh5c"]
+[ext_resource type="PackedScene" uid="uid://cluomp26ey2vp" path="res://environ_one.tscn" id="4_28aoi"]
 
 [node name="root" type="Node" unique_id=1009913539]
 
@@ -12,3 +13,5 @@
 
 [node name="Player" parent="." unique_id=85002292 instance=ExtResource("3_vvh5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3096113, 14.584622)
+
+[node name="environOne" parent="." unique_id=1416270501 instance=ExtResource("4_28aoi")]
