@@ -40,3 +40,12 @@ func newBehave():
 		moveMinusY()
 	if newNumb == 5:
 		moveMinusZ()
+
+
+
+
+
+func _on_area_3d_mouse_entered() -> void:
+	var myMaterial = $shrimp/Cube.get_surface_override_material()
+	myMaterial.albedo_color = Color(0.965, 0.0, 0.0, 1.0)
+	

@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://se3ol7h6m41f" path="res://tank_one.tscn" id="1_pq8q7"]
 [ext_resource type="PackedScene" uid="uid://d0x2plgdvql6h" path="res://shrimp_spawner.tscn" id="1_pyidc"]
+[ext_resource type="PackedScene" uid="uid://dyw18dqamh3ic" path="res://player.tscn" id="3_vvh5c"]
 
 [node name="root" type="Node" unique_id=1009913539]
 
 [node name="tankOne" parent="." unique_id=553704417 instance=ExtResource("1_pq8q7")]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1115675992]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4673967, 4.9111204, 15.0841675)
-
 [node name="shrimpSpawner" parent="." unique_id=1395291287 instance=ExtResource("1_pyidc")]
+
+[node name="Player" parent="." unique_id=85002292 instance=ExtResource("3_vvh5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3096113, 14.584622)

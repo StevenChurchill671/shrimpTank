@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c0m2ef32dnnt5"]
+
+[ext_resource type="Script" uid="uid://d4atod0q4q2ms" path="res://mouse.gd" id="1_8f81w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(0.61479753, 0.41250253, 0.6619468, 1)
+
+[node name="Mouse" type="Node3D" unique_id=213471812]
+script = ExtResource("1_8f81w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=433760462]
+mesh = SubResource("BoxMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_yf5fn")
