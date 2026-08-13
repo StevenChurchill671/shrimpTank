@@ -5,6 +5,7 @@ var selfColour
 func _ready() -> void:
 	target=self.global_position
 	selfColour=$shrimp/Cube.get_surface_override_material(0).duplicate()
+	$shrimp/Cube.set_surface_override_material(0, selfColour)
 func _process(delta: float) -> void:
 	if !is_inside_tree():
 		return

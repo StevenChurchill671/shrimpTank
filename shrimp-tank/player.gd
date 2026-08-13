@@ -13,6 +13,7 @@ func  _unhandled_input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * .005)
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		$mouseCast3D.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 func _physics_process(delta):
 	if $mouseCast3D.get_collider() != null:
 		temporary = $mouseCast3D.get_collider()
