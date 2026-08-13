@@ -16,8 +16,8 @@ func  _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta):
 	if $mouseCast3D.get_collider() != null:
 		temporary = $mouseCast3D.get_collider()
-		var here = temporary.get_parent().get_child(0).get_child(0).get_surface_override_material(0)
-		here.albedo_color = Color(0.423, 0.0, 0.0, 1.0)
+		var here = temporary.get_parent()
+		here.changeColour(Color(1.0, 0.0, 0.0, 1.0))
 	var inputDirection = Input.get_vector("left", "right", "down", "up")
 	var forward = -camera.global_transform.basis.z
 	var right = camera.global_transform.basis.x

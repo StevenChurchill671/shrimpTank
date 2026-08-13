@@ -44,3 +44,4 @@ func newBehave():
 
 func changeColour(colour):
 	selfColour.albedo_color = colour
+	
