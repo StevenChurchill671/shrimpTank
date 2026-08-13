@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://se3ol7h6m41f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
+transparency = 1
+blend_mode = 3
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+
+[node name="tankOne" type="Node3D" unique_id=553704417]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1109257384]
+transform = Transform3D(20, 0, 0, 0, -8.742278e-08, 8, 0, -2, -3.496911e-07, 4, 8, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_57qmd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=460777563]
+transform = Transform3D(20, 2.543131e-07, 4.4465516e-14, 0, -8.742278e-08, 8, 2.5431311e-06, -2, -3.496911e-07, 5, 8, 20)
+mesh = SubResource("PlaneMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_57qmd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2080386899]
+transform = Transform3D(-4.371139e-07, -2, -3.496911e-07, 0, -8.742278e-08, 8, -10, 8.742278e-08, 1.5285484e-14, -14.692943, 8, 10)
+mesh = SubResource("PlaneMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_57qmd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=119148568]
+transform = Transform3D(-4.371139e-07, -2, -3.496911e-07, 0, -8.742278e-08, 8, -10, 8.742278e-08, 1.5285484e-14, 24.307056, 8, 10)
+mesh = SubResource("PlaneMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_57qmd")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1898198227]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 12, 5, 0, 8)
+mesh = SubResource("PlaneMesh_yf5fn")

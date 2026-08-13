@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cor082oxsscw5"]
+
+[ext_resource type="PackedScene" uid="uid://tnsjbrtvr7ln" path="res://shrimp.blend" id="1_e2mjr"]
+[ext_resource type="Script" uid="uid://c1nghbelhy3lh" path="res://shrimp.gd" id="1_umfgr"]
+
+[node name="shrimp" type="CharacterBody3D" unique_id=1841529145]
+script = ExtResource("1_umfgr")
+
+[node name="shrimp" parent="." unique_id=675951889 instance=ExtResource("1_e2mjr")]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0x2plgdvql6h"]
+
+[ext_resource type="Script" uid="uid://dl1fdnfy43o84" path="res://shrimp_spawner.gd" id="1_tmoft"]
+
+[node name="shrimpSpawner" type="Node" unique_id=1395291287]
+script = ExtResource("1_tmoft")
