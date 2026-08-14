@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !is_inside_tree():
 		return
-	if foodDiscovered:
+	if foodDiscovered && foodItself!=null:
 		target = foodItself.global_position
 		velocity = global_position.direction_to(target) * speed
 		move_and_slide()

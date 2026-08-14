@@ -24,6 +24,7 @@ func _physics_process(delta):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
 			menuOpen = true
+			self.global_position = get_parent().get_child(4).global_position
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if $mouseCast3D.get_collider() != null && $mouseCast3D.get_collider().has_meta("shrimp"):
 		temporary = $mouseCast3D.get_collider()

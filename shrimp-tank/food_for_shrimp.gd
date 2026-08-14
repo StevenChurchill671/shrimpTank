@@ -11,4 +11,4 @@ func _on_eat_area_area_entered(area: Area3D) -> void:
 
 func _on_discover_area_area_entered(area: Area3D) -> void:
 	if area.has_meta("shrimp"):
-		area.get_parent()
+		area.get_parent().findFood(self)
