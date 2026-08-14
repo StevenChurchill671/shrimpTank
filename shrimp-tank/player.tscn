@@ -14,3 +14,7 @@ script = ExtResource("1_4flbx")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 target_position = Vector3(0, 0, -2)
 collide_with_areas = true
+
+[connection signal="pressed" from="Camera3D/optionsViewContainer/SubViewport/feedButton" to="." method="_on_feed_button_pressed"]
+
+[editable path="Camera3D/optionsViewContainer"]

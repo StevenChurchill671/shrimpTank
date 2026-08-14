@@ -2,12 +2,19 @@ extends CharacterBody3D
 var speed = 2
 var target : Vector3 
 var selfColour 
+var foodDiscovered = false
+var foodItself 
 func _ready() -> void:
 	target=self.global_position
 	selfColour=$shrimp/Cube.get_surface_override_material(0).duplicate()
 	$shrimp/Cube.set_surface_override_material(0, selfColour)
 func _process(delta: float) -> void:
 	if !is_inside_tree():
+		return
+	if foodDiscovered:
+		target = foodItself.global_position
+		velocity = global_position.direction_to(target) * speed
+		move_and_slide()
 		return
 	newBehave()
 	newBehave()
@@ -46,3 +53,7 @@ func newBehave():
 func changeColour(colour):
 	selfColour.albedo_color = colour
 	
+func findFood(food):
+	target = food.global_position
+	foodDiscovered = true
+	foodItself = food

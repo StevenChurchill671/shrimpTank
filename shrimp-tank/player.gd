@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
+var food = preload("res://food_for_shrimp.tscn")
+
 var temporary
+var menuOpen = false
 @onready
 var camera = $Camera3D
 @export var speed = 8.0 # Movement speed
@@ -9,12 +12,19 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	self.name = "player"
 func  _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion && !menuOpen:
 		rotate_y(-event.relative.x * .005)
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 		$mouseCast3D.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 func _physics_process(delta):
+	if Input.is_action_just_pressed("openMenu"):
+		if menuOpen == true:
+			menuOpen = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			menuOpen = true
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if $mouseCast3D.get_collider() != null && $mouseCast3D.get_collider().has_meta("shrimp"):
 		temporary = $mouseCast3D.get_collider()
 		var here = temporary.get_parent()
@@ -38,3 +48,9 @@ func _physics_process(delta):
 	
 	
 	move_and_slide()
+
+
+func _on_feed_button_pressed() -> void:
+	var myFood = food.instantiate()
+	get_parent().add_child(myFood)
+	myFood.global_position = Vector3(2,10,5)

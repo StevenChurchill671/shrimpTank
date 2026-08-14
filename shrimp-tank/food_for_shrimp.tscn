@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c2udfu1tjiak2"]
+
+[ext_resource type="Script" uid="uid://ct8lwbga0015x" path="res://food_for_shrimp.gd" id="1_xsinn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
+albedo_color = Color(0.82427585, 0.4026507, 0.4318076, 1)
+metallic = 0.56
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g4v7s"]
+height = 6.575
+radius = 7.689
+
+[node name="foodForShrimp" type="Node3D" unique_id=87915995]
+script = ExtResource("1_xsinn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1686798636]
+mesh = SubResource("BoxMesh_yf5fn")
+surface_material_override/0 = SubResource("StandardMaterial3D_57qmd")
+
+[node name="eatArea" type="Area3D" parent="." unique_id=1964366599]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="eatArea" unique_id=958281538]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="discoverArea" type="Area3D" parent="." unique_id=1589554794]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="discoverArea" unique_id=1981837344]
+shape = SubResource("CylinderShape3D_g4v7s")
+
+[connection signal="area_entered" from="eatArea" to="." method="_on_eat_area_area_entered"]
+[connection signal="area_entered" from="discoverArea" to="." method="_on_discover_area_area_entered"]
