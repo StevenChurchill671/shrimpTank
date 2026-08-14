@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://dyw18dqamh3ic"]
 
 [ext_resource type="Script" uid="uid://b65cmcgsgljrk" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://d3jonbdvg6con" path="res://options_view_container.tscn" id="2_onrkg"]
 
 [node name="Player" type="CharacterBody3D" unique_id=85002292]
 script = ExtResource("1_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=368120725]
+
+[node name="optionsViewContainer" parent="Camera3D" unique_id=1437830090 instance=ExtResource("2_onrkg")]
 
 [node name="mouseCast3D" type="RayCast3D" parent="." unique_id=1892205937]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

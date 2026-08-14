@@ -15,7 +15,7 @@ func  _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 		$mouseCast3D.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 func _physics_process(delta):
-	if $mouseCast3D.get_collider() != null:
+	if $mouseCast3D.get_collider() != null && $mouseCast3D.get_collider().has_meta("shrimp"):
 		temporary = $mouseCast3D.get_collider()
 		var here = temporary.get_parent()
 		here.changeColour(Color(1.0, 0.0, 0.0, 1.0))

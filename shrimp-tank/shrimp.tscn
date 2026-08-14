@@ -9,6 +9,9 @@ albedo_color = Color(1, 0.15294118, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(4.161865, 2.4642944, 2.3710938)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(2.0472412, 1.6456299, 2.7352905)
+
 [node name="shrimp" type="CharacterBody3D" unique_id=1841529145]
 script = ExtResource("1_umfgr")
 
@@ -18,9 +21,14 @@ script = ExtResource("1_umfgr")
 surface_material_override/0 = SubResource("StandardMaterial3D_umfgr")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=593174433]
+metadata/shrimp = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=756324413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37731934, 0.13882446, 0.6855469)
 shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1962535568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08660889, 0.32281494, 0.27871704)
+shape = SubResource("BoxShape3D_yf5fn")
 
 [editable path="shrimp"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cluomp26ey2vp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v1e44"]
+sun_angle_max = 90.0
 
 [sub_resource type="Sky" id="Sky_ssxxy"]
 sky_material = SubResource("ProceduralSkyMaterial_v1e44")
