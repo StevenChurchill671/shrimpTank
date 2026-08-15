@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://duvoyntfa7ux1"]
+
+[ext_resource type="PackedScene" uid="uid://se3ol7h6m41f" path="res://tank_one.tscn" id="1_6i8fh"]
+
+[node name="TankOneBoundaries" type="Node3D" unique_id=113954213]
+
+[node name="tankOne" parent="." unique_id=553704417 instance=ExtResource("1_6i8fh")]

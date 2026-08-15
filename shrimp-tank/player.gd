@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
 var food = preload("res://food_for_shrimp.tscn")
-
+var feederNode = preload("res://feeder_node.tscn")
 var temporary
+var feeder
 var menuOpen = false
 @onready
 var camera = $Camera3D
@@ -34,6 +35,10 @@ func _physics_process(delta):
 	var forward = -camera.global_transform.basis.z
 	var right = camera.global_transform.basis.x
 	var direction = (right * inputDirection.x + forward * inputDirection.y).normalized()
+	
+	if Input.is_action_pressed("left") && menuOpen: 
+		if feeder!= null:
+			feeder.global_position += Vector3(-0.2,0,0)
 	if Input.is_action_pressed("jump"): 
 		self.velocity.y = jumpHeight 
 	
@@ -52,6 +57,8 @@ func _physics_process(delta):
 
 
 func _on_feed_button_pressed() -> void:
+	feeder = feederNode.instantiate()
+	get_parent().add_child(feeder)
 	var myFood = food.instantiate()
 	get_parent().add_child(myFood)
 	myFood.global_position = Vector3(2,10,5)
