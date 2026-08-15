@@ -7,6 +7,7 @@ transparency = 1
 blend_mode = 3
 cull_mode = 2
 depth_draw_mode = 2
+refraction_scale = 1.0
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6asdq"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)

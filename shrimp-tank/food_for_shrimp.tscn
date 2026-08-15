@@ -14,7 +14,9 @@ metallic = 0.56
 height = 6.575
 radius = 7.689
 
-[node name="foodForShrimp" type="Node3D" unique_id=87915995]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+
+[node name="foodForShrimp" type="CharacterBody3D" unique_id=673475724]
 script = ExtResource("1_xsinn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1686798636]
@@ -24,12 +26,16 @@ surface_material_override/0 = SubResource("StandardMaterial3D_57qmd")
 [node name="eatArea" type="Area3D" parent="." unique_id=1964366599]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="eatArea" unique_id=958281538]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="discoverArea" type="Area3D" parent="." unique_id=1589554794]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="discoverArea" unique_id=1981837344]
 shape = SubResource("CylinderShape3D_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2050400298]
+shape = SubResource("BoxShape3D_yf5fn")
 
 [connection signal="area_entered" from="eatArea" to="." method="_on_eat_area_area_entered"]
 [connection signal="area_entered" from="discoverArea" to="." method="_on_discover_area_area_entered"]

@@ -5,6 +5,10 @@ var feederNode = preload("res://feeder_node.tscn")
 var temporary
 var feeder
 var menuOpen = false
+var isLeft = false
+var isRight = false
+var isFront = true
+var isBack = false
 @onready
 var camera = $Camera3D
 @export var speed = 8.0 # Movement speed
@@ -27,7 +31,8 @@ func _physics_process(delta):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
 			menuOpen = true
-			self.global_position = get_parent().get_child(4).global_position
+			self.rotation = Vector3(0,0,0)
+			self.global_position = $"../playholder".global_position
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if $mouseCast3D.get_collider() != null && $mouseCast3D.get_collider().has_meta("shrimp"):
 		temporary = $mouseCast3D.get_collider()
@@ -41,6 +46,9 @@ func _physics_process(delta):
 		if Input.is_action_pressed("left"): 
 			if feeder!= null:
 				feeder.global_position += Vector3(-0.2,0,0)
+			if feeder == null:
+				self.global_position = $"../playHolderThree".global_position
+				self.rotation = Vector3 (0,-90,0)
 		if Input.is_action_pressed("right"): 
 			if feeder!= null:
 				feeder.global_position += Vector3(0.2,0,0)
@@ -55,7 +63,7 @@ func _physics_process(delta):
 		self.velocity.y = jumpHeight 
 	
 	# Normalize direction to prevent faster diagonal movement
-	if direction != Vector3.ZERO :
+	if direction != Vector3.ZERO && !menuOpen :
 		self.velocity.x = direction.x * speed
 		self.velocity.z = direction.z * speed
 		self.velocity.y = direction.y * speed
@@ -67,7 +75,8 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-
+func shiftLeftRightFrontBacl():
+	isFront = $"../playholder"
 func _on_feed_button_pressed() -> void:
 	if feeder==null:
 		feeder = feederNode.instantiate()

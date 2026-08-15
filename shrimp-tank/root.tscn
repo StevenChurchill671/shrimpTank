@@ -17,4 +17,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3096113, 14.584622)
 [node name="environOne" parent="." unique_id=1416270501 instance=ExtResource("4_28aoi")]
 
 [node name="playholder" type="Node3D" parent="." unique_id=1083211236]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.457869, 21.422804)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4317703, 9.029415, 24.098616)
+
+[node name="playHolderTwo" type="Node3D" parent="." unique_id=441069334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.05464, 8.7287855, 11.126124)
+
+[node name="playHolderThree" type="Node3D" parent="." unique_id=1300349331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.16641, 7.6687317, 8.375835)
