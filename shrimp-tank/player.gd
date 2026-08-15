@@ -22,6 +22,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("openMenu"):
 		if menuOpen == true:
 			menuOpen = false
+			if feeder!= null:
+				feeder.queue_free()
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
 			menuOpen = true
@@ -67,9 +69,10 @@ func _physics_process(delta):
 
 
 func _on_feed_button_pressed() -> void:
-	feeder = feederNode.instantiate()
-	get_parent().add_child(feeder)
-	feeder.global_position=Vector3(0,15,5)
+	if feeder==null:
+		feeder = feederNode.instantiate()
+		get_parent().add_child(feeder)
+		feeder.global_position=Vector3(0,15,5)
 	var myFood = food.instantiate()
 	get_parent().add_child(myFood)
-	myFood.global_position = Vector3(2,10,5)
+	myFood.global_position = feeder.global_position
