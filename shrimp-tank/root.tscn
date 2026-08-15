@@ -24,3 +24,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.05464, 8.7287855, 11.12612
 
 [node name="playHolderThree" type="Node3D" parent="." unique_id=1300349331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.16641, 7.6687317, 8.375835)
+
+[node name="playHolderFour" type="Node3D" parent="." unique_id=763659079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.658825, 9.182856, -8.3419075)

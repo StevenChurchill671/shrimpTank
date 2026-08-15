@@ -52,17 +52,25 @@ func _physics_process(delta):
 				feeder.global_position += Vector3(-0.2,0,0)
 			if feeder == null:
 				self.global_position = $"../playHolderThree".global_position
-				self.rotation = Vector3 (0,-90,0)
+				self.rotation_degrees = Vector3 (0,-90,0)
 		if Input.is_action_pressed("right"): 
 			if feeder!= null:
 				feeder.global_position += Vector3(0.2,0,0)
+			if feeder == null:
+				self.global_position = $"../playHolderTwo".global_position
+				self.rotation_degrees = Vector3 (0,90,0)
 		if Input.is_action_pressed("up"): 
 			if feeder!= null:
 				feeder.global_position += Vector3(0,0,-0.2)
+			if feeder == null:
+				self.global_position = $"../playHolderFour".global_position
+				self.rotation_degrees = Vector3 (0,180,0)
 		if Input.is_action_pressed("down"): 
 			if feeder!= null:
 				feeder.global_position += Vector3(0,0,0.2)
-		
+			if feeder == null:
+				self.global_position = $"../playholder".global_position
+				self.rotation_degrees = Vector3 (0,0,0)
 	if Input.is_action_pressed("jump"): 
 		self.velocity.y = jumpHeight 
 	
@@ -79,9 +87,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func shiftLeftRightFrontBacl(number):
-	if number == 0:
-		pass
+
 func _on_feed_button_pressed() -> void:
 	if feeder==null:
 		feeder = feederNode.instantiate()
