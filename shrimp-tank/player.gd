@@ -5,9 +5,13 @@ var feederNode = preload("res://feeder_node.tscn")
 var temporary
 var feeder
 var menuOpen = false
-var isLeft = false
-var isRight = false
-var isFront = true
+@onready
+var leftPosition = $"../playHolderThree"
+@onready
+var rightPosition = $"../playHolderTwo"
+@onready
+var frontPosition = $"../playholder"
+@onready
 var isBack = false
 @onready
 var camera = $Camera3D
@@ -75,8 +79,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func shiftLeftRightFrontBacl():
-	isFront = $"../playholder"
+func shiftLeftRightFrontBacl(number):
+	if number == 0:
+		pass
 func _on_feed_button_pressed() -> void:
 	if feeder==null:
 		feeder = feederNode.instantiate()
