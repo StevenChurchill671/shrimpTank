@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bku0f7vbgsa2j"]
+
+[ext_resource type="Script" uid="uid://c0ntcmdb64dbg" path="res://border_script.gd" id="1_befax"]
+
+[node name="borderScript" type="Node" unique_id=989866390]
+script = ExtResource("1_befax")

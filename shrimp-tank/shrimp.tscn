@@ -31,4 +31,6 @@ shape = SubResource("BoxShape3D_g4v7s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08660889, 0.32281494, 0.27871704)
 shape = SubResource("BoxShape3D_yf5fn")
 
+[node name="boundaryTimer" type="Timer" parent="." unique_id=1697688191]
+
 [editable path="shrimp"]

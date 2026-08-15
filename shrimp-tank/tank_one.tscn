@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://se3ol7h6m41f"]
 
+[ext_resource type="PackedScene" uid="uid://bku0f7vbgsa2j" path="res://border_script.tscn" id="1_ddfo8"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
@@ -25,6 +27,9 @@ points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5jwab"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(39.43452, 0.67041016, 21.732483)
 
 [node name="tankOne" type="Node3D" unique_id=553704417]
 
@@ -76,3 +81,13 @@ mesh = SubResource("PlaneMesh_yf5fn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D5/StaticBody3D" unique_id=441113802]
 shape = SubResource("ConvexPolygonShape3D_5jwab")
+
+[node name="floorBorder" type="Area3D" parent="." unique_id=2040922150]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floorBorder" unique_id=1421111115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.064459, -0.16479492, 9.128998)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="borderScript" parent="." unique_id=989866390 instance=ExtResource("1_ddfo8")]
+
+[connection signal="body_entered" from="floorBorder" to="borderScript" method="_on_floor_border_body_entered"]

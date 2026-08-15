@@ -37,17 +37,17 @@ func moveAwayFromOthers():
 	pass
 func newBehave():
 	var newNumb = randi_range(0,120)
-	if newNumb <= 20:
-		movePlusX()
-	if newNumb <= 40 && newNumb > 20:
+	if newNumb <= yWeight:
 		movePlusY()
-	if newNumb <= 60 && newNumb > 40:
-		movePlusZ()
-	if newNumb <= 80 && newNumb > 60:
-		moveMinusX()
-	if newNumb <= 100 && newNumb > 80:
+	if newNumb <= 40 && newNumb > yWeight:
 		moveMinusY()
-	if newNumb <= 120 && newNumb > 100:
+	if newNumb <= xWeight && newNumb > 40:
+		movePlusX()
+	if newNumb <= 80 && newNumb > xWeight:
+		moveMinusX()
+	if newNumb <= zWeight && newNumb > 80:
+		movePlusZ()
+	if newNumb <= 120 && newNumb > zWeight:
 		moveMinusZ()
 
 func changeColour(colour):
@@ -57,8 +57,21 @@ func findFood(food):
 	target = food.global_position
 	foodDiscovered = true
 	foodItself = food
-var yWeight = 0
+var yWeight = 20
 var xWeight = 0
 var zWeight = 0
-func changeWeights(xyz, posOrNeg):
-	pass
+func changeWeights(xyz, posOrNeg): 
+	if posOrNeg == 1:
+		if xyz == 1:
+			yWeight+=5
+		if xyz == 0:
+			xWeight += 10
+		if xyz == 2:
+			zWeight += 10
+	if posOrNeg == 0:
+		if xyz == 1:
+			yWeight-=10
+		if xyz == 0:
+			xWeight -= 10
+		if xyz == 2:
+			zWeight -= 10
