@@ -35,10 +35,20 @@ func _physics_process(delta):
 	var forward = -camera.global_transform.basis.z
 	var right = camera.global_transform.basis.x
 	var direction = (right * inputDirection.x + forward * inputDirection.y).normalized()
-	
-	if Input.is_action_pressed("left") && menuOpen: 
-		if feeder!= null:
-			feeder.global_position += Vector3(-0.2,0,0)
+	if menuOpen:
+		if Input.is_action_pressed("left"): 
+			if feeder!= null:
+				feeder.global_position += Vector3(-0.2,0,0)
+		if Input.is_action_pressed("right"): 
+			if feeder!= null:
+				feeder.global_position += Vector3(0.2,0,0)
+		if Input.is_action_pressed("up"): 
+			if feeder!= null:
+				feeder.global_position += Vector3(0,0,-0.2)
+		if Input.is_action_pressed("down"): 
+			if feeder!= null:
+				feeder.global_position += Vector3(0,0,0.2)
+		
 	if Input.is_action_pressed("jump"): 
 		self.velocity.y = jumpHeight 
 	
@@ -59,6 +69,7 @@ func _physics_process(delta):
 func _on_feed_button_pressed() -> void:
 	feeder = feederNode.instantiate()
 	get_parent().add_child(feeder)
+	feeder.global_position=Vector3(0,15,5)
 	var myFood = food.instantiate()
 	get_parent().add_child(myFood)
 	myFood.global_position = Vector3(2,10,5)
