@@ -13,6 +13,7 @@ size = Vector3(4.161865, 2.4642944, 2.3710938)
 size = Vector3(2.0472412, 1.6456299, 2.7352905)
 
 [node name="shrimp" type="CharacterBody3D" unique_id=1841529145]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("1_umfgr")
 
 [node name="shrimp" parent="." unique_id=675951889 instance=ExtResource("1_e2mjr")]

@@ -58,8 +58,8 @@ func findFood(food):
 	foodDiscovered = true
 	foodItself = food
 var yWeight = 20
-var xWeight = 0
-var zWeight = 0
+var xWeight = 60
+var zWeight = 100
 func changeWeights(xyz, posOrNeg): 
 	if posOrNeg == 1:
 		if xyz == 1:

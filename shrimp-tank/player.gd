@@ -38,6 +38,7 @@ func _physics_process(delta):
 			self.rotation = Vector3(0,0,0)
 			self.global_position = $"../playholder".global_position
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			camera.rotation.x = 0
 	if $mouseCast3D.get_collider() != null && $mouseCast3D.get_collider().has_meta("shrimp"):
 		temporary = $mouseCast3D.get_collider()
 		var here = temporary.get_parent()
