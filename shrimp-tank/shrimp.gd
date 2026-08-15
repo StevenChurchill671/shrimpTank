@@ -70,7 +70,7 @@ func changeWeights(xyz, posOrNeg):
 			zWeight = 110
 	if posOrNeg == 0:
 		if xyz == 1:
-			yWeight = 10
+			yWeight = 5
 		if xyz == 0:
 			xWeight = 50
 		if xyz == 2:
