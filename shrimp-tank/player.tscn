@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b65cmcgsgljrk" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://d3jonbdvg6con" path="res://options_view_container.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://cbcqxm4hl4cho" path="res://booth_shrimp_customise.tscn" id="3_i3pqv"]
 
 [node name="Player" type="CharacterBody3D" unique_id=85002292]
 script = ExtResource("1_4flbx")
@@ -9,11 +10,26 @@ script = ExtResource("1_4flbx")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=368120725]
 
 [node name="optionsViewContainer" parent="Camera3D" unique_id=1437830090 instance=ExtResource("2_onrkg")]
+visible = false
+
+[node name="SubViewport" parent="Camera3D/optionsViewContainer" index="0" unique_id=376324192]
+render_target_update_mode = 0
 
 [node name="mouseCast3D" type="RayCast3D" parent="." unique_id=1892205937]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 target_position = Vector3(0, 0, -2)
 collide_with_areas = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1203790410]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="boothShrimpCustomise" parent="SubViewportContainer" unique_id=484634495 instance=ExtResource("3_i3pqv")]
+layout_mode = 2
 
 [connection signal="pressed" from="Camera3D/optionsViewContainer/SubViewport/feedButton" to="." method="_on_feed_button_pressed"]
 

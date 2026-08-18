@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 var food = preload("res://food_for_shrimp.tscn")
 var feederNode = preload("res://feeder_node.tscn")
+var shrimpRoom = preload("res://shrimp_viewing_booth.tscn")
 var temporary
 var feeder
 var menuOpen = false
@@ -29,11 +30,13 @@ func  _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta):
 	if Input.is_action_just_pressed("openMenu"):
 		if menuOpen == true:
+			$Camera3D/optionsViewContainer.hide()
 			menuOpen = false
 			if feeder!= null:
 				feeder.queue_free()
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
+			$Camera3D/optionsViewContainer.show()
 			menuOpen = true
 			self.rotation = Vector3(0,0,0)
 			self.global_position = $"../playholder".global_position
@@ -45,7 +48,18 @@ func _physics_process(delta):
 		here.changeColour(Color(1.0, 0.0, 0.0, 1.0))
 		here.makeNameVisible()
 		if Input.is_action_just_pressed("leftClick"):
-			pass
+			var localShrimpRoom = shrimpRoom.instantiate()
+			$SubViewportContainer.show()
+			$SubViewportContainer/boothShrimpCustomise.changeShrimpNameFirst(here)
+			get_parent().add_child(localShrimpRoom)
+			localShrimpRoom.global_position = Vector3(-210,0,0)
+			self.global_position = localShrimpRoom.global_position
+			self.global_position += Vector3(-4,3,5)
+			self.rotation_degrees = Vector3(0,-35,0)
+			here.global_position = localShrimpRoom.global_position
+			here.global_position += Vector3(0,3,0)
+			here.rotation_degrees = Vector3(0,-30,0)
+			here.noMove = true
 	var inputDirection = Input.get_vector("left", "right", "down", "up")
 	var forward = -camera.global_transform.basis.z
 	var right = camera.global_transform.basis.x

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cbcqxm4hl4cho"]
+
+[ext_resource type="Script" uid="uid://chbla3nfdn36e" path="res://booth_shrimp_customise.gd" id="1_plva1"]
+[ext_resource type="Theme" uid="uid://bae7ds1q1rjse" path="res://localButtonTheme.tres" id="1_uq682"]
+
+[node name="boothShrimpCustomise" type="HBoxContainer" unique_id=1602379761]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_plva1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=733218636]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Container7" type="Container" parent="VBoxContainer" unique_id=1349788790]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container6" type="Container" parent="VBoxContainer" unique_id=796466825]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=206709462]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container2" type="Container" parent="VBoxContainer/HBoxContainer" unique_id=1242000800]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="nameBox" type="TextEdit" parent="VBoxContainer/HBoxContainer" unique_id=1403217233]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_uq682")
+text = "shrimp"
+placeholder_text = "shrimp"
+
+[node name="confirmName" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=860425851]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_uq682")
+text = "confirm"
+
+[node name="Container2" type="Container" parent="VBoxContainer" unique_id=168846782]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container3" type="Container" parent="VBoxContainer" unique_id=1914739535]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container8" type="Container" parent="VBoxContainer" unique_id=1905921395]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container5" type="Container" parent="VBoxContainer" unique_id=1221267716]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container4" type="Container" parent="VBoxContainer" unique_id=893022086]
+layout_mode = 2
+size_flags_vertical = 3

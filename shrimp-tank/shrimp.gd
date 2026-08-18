@@ -7,6 +7,8 @@ var foodItself
 var shrimpName = "Shrimp"
 var noMove = false
 var localMesh
+var age = 0
+var sizeMax =0
 func _ready() -> void:
 	target=self.global_position
 	selfColour=$shrimp/Cube.get_surface_override_material(0).duplicate()
