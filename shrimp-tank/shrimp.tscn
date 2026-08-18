@@ -34,4 +34,9 @@ shape = SubResource("BoxShape3D_yf5fn")
 
 [node name="boundaryTimer" type="Timer" parent="." unique_id=1697688191]
 
+[node name="nameTimeout" type="Timer" parent="." unique_id=174281769]
+wait_time = 3.0
+
+[connection signal="timeout" from="nameTimeout" to="." method="_on_name_timeout_timeout"]
+
 [editable path="shrimp"]

@@ -43,8 +43,9 @@ func _physics_process(delta):
 		temporary = $mouseCast3D.get_collider()
 		var here = temporary.get_parent()
 		here.changeColour(Color(1.0, 0.0, 0.0, 1.0))
+		here.makeNameVisible()
 		if Input.is_action_just_pressed("leftClick"):
-			here.makeNameVisible()
+			pass
 	var inputDirection = Input.get_vector("left", "right", "down", "up")
 	var forward = -camera.global_transform.basis.z
 	var right = camera.global_transform.basis.x

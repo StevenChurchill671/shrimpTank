@@ -6,6 +6,7 @@ var foodDiscovered = false
 var foodItself 
 var shrimpName = "Shrimp"
 var noMove = false
+var localMesh
 func _ready() -> void:
 	target=self.global_position
 	selfColour=$shrimp/Cube.get_surface_override_material(0).duplicate()
@@ -81,9 +82,16 @@ func changeWeights(xyz, posOrNeg):
 			zWeight = 90
 
 func makeNameVisible():
-	var localMesh = MeshInstance3D.new()
-	localMesh.mesh = TextMesh
-	add_child(localMesh)
-	localMesh.position = Vector3(0,1,0)
-	localMesh.mesh.text = shrimpName
-	
+	if localMesh ==null:
+		localMesh = MeshInstance3D.new()
+		localMesh.mesh = TextMesh.new()
+		add_child(localMesh)
+		localMesh.position = Vector3(0,2,0)
+		localMesh.mesh.text = str(shrimpName)
+		localMesh.scale = Vector3(2,2,2)
+		$nameTimeout.start()
+
+
+func _on_name_timeout_timeout() -> void:
+	if localMesh!=null:
+		localMesh.queue_free()
