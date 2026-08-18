@@ -5,6 +5,7 @@ var feederNode = preload("res://feeder_node.tscn")
 var shrimpRoom = preload("res://shrimp_viewing_booth.tscn")
 var temporary
 var feeder
+var shrimpBoothOpen = false
 var menuOpen = false
 @onready
 var leftPosition = $"../playHolderThree"
@@ -22,7 +23,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	self.name = "player"
 func  _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion && !menuOpen:
+	if event is InputEventMouseMotion && ((!menuOpen) && (!shrimpBoothOpen)) :
 		rotate_y(-event.relative.x * .005)
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
@@ -48,6 +49,8 @@ func _physics_process(delta):
 		here.changeColour(Color(1.0, 0.0, 0.0, 1.0))
 		here.makeNameVisible()
 		if Input.is_action_just_pressed("leftClick"):
+			if shrimpBoothOpen:
+				return
 			var localShrimpRoom = shrimpRoom.instantiate()
 			$SubViewportContainer.show()
 			$SubViewportContainer/boothShrimpCustomise.changeShrimpNameFirst(here)
@@ -60,6 +63,9 @@ func _physics_process(delta):
 			here.global_position += Vector3(0,3,0)
 			here.rotation_degrees = Vector3(0,-30,0)
 			here.noMove = true
+			shrimpBoothOpen = true
+			camera.rotation.x = 0
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var inputDirection = Input.get_vector("left", "right", "down", "up")
 	var forward = -camera.global_transform.basis.z
 	var right = camera.global_transform.basis.x
@@ -114,3 +120,10 @@ func _on_feed_button_pressed() -> void:
 	var myFood = food.instantiate()
 	get_parent().add_child(myFood)
 	myFood.global_position = feeder.global_position
+
+func exitShrimpBooth():
+	shrimpBoothOpen = false
+	global_position =  $"../playholder".global_position
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$SubViewportContainer.hide()
+	camera.rotation.x = 0

@@ -18,9 +18,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Container7" type="Container" parent="VBoxContainer" unique_id=1349788790]
+[node name="Container7" type="HBoxContainer" parent="VBoxContainer" unique_id=1486201272]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="exit" type="Button" parent="VBoxContainer/Container7" unique_id=1790579015]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_uq682")
+text = "back to tank"
 
 [node name="Container6" type="Container" parent="VBoxContainer" unique_id=796466825]
 layout_mode = 2
@@ -67,3 +73,6 @@ size_flags_vertical = 3
 [node name="Container4" type="Container" parent="VBoxContainer" unique_id=893022086]
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/Container7/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/confirmName" to="." method="changeShrimpNameNew"]
