@@ -4,12 +4,16 @@ var target : Vector3
 var selfColour 
 var foodDiscovered = false
 var foodItself 
+var shrimpName = "Shrimp"
+var noMove = false
 func _ready() -> void:
 	target=self.global_position
 	selfColour=$shrimp/Cube.get_surface_override_material(0).duplicate()
 	$shrimp/Cube.set_surface_override_material(0, selfColour)
 func _process(delta: float) -> void:
 	if !is_inside_tree():
+		return
+	if noMove:
 		return
 	if foodDiscovered && foodItself!=null:
 		target = foodItself.global_position
@@ -75,3 +79,11 @@ func changeWeights(xyz, posOrNeg):
 			xWeight = 50
 		if xyz == 2:
 			zWeight = 90
+
+func makeNameVisible():
+	var localMesh = MeshInstance3D.new()
+	localMesh.mesh = TextMesh
+	add_child(localMesh)
+	localMesh.position = Vector3(0,1,0)
+	localMesh.mesh.text = shrimpName
+	

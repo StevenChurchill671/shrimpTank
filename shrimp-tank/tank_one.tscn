@@ -32,7 +32,7 @@ points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 size = Vector3(39.43452, 0.67041016, 21.732483)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
-size = Vector3(42.346954, 1, 21.50293)
+size = Vector3(42.346954, 2.743164, 21.50293)
 
 [node name="tankOne" type="Node3D" unique_id=553704417]
 
@@ -97,7 +97,7 @@ shape = SubResource("BoxShape3D_yf5fn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.380163, 14.949604, 8.295496)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="skyBorder" unique_id=1202971677]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2644501, 0, 1.5385742)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2644501, -0.87158203, 1.5385742)
 shape = SubResource("BoxShape3D_57qmd")
 
 [connection signal="body_entered" from="floorBorder" to="borderScript" method="_on_floor_border_body_entered"]
