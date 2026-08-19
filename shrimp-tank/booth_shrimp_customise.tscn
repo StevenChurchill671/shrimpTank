@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chbla3nfdn36e" path="res://booth_shrimp_customise.gd" id="1_plva1"]
 [ext_resource type="Theme" uid="uid://bae7ds1q1rjse" path="res://localButtonTheme.tres" id="1_uq682"]
+[ext_resource type="Texture2D" uid="uid://bg2rk1befj4da" path="res://propPic.png" id="3_jfrpy"]
 
 [node name="boothShrimpCustomise" type="HBoxContainer" unique_id=1602379761]
 anchors_preset = 15
@@ -54,9 +55,26 @@ size_flags_horizontal = 3
 theme = ExtResource("1_uq682")
 text = "confirm"
 
-[node name="Container2" type="Container" parent="VBoxContainer" unique_id=168846782]
+[node name="Container2" type="HBoxContainer" parent="VBoxContainer" unique_id=678384235]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/Container2" unique_id=1676215092]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 1
+icon_mode = 0
+icon_scale = 0.05
+item_0/text = "Prop"
+item_0/icon = ExtResource("3_jfrpy")
+
+[node name="FoldableContainer" type="FoldableContainer" parent="VBoxContainer/Container2" unique_id=1276038556]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Container" type="Container" parent="VBoxContainer/Container2" unique_id=806337013]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Container3" type="Container" parent="VBoxContainer" unique_id=1914739535]
 layout_mode = 2
@@ -76,3 +94,4 @@ size_flags_vertical = 3
 
 [connection signal="pressed" from="VBoxContainer/Container7/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/confirmName" to="." method="changeShrimpNameNew"]
+[connection signal="item_selected" from="VBoxContainer/Container2/ItemList" to="." method="_on_item_list_item_selected"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ctskbh3vtiwfk"]
+
+[ext_resource type="PackedScene" uid="uid://cfjrpvqfutp0c" path="res://propellorHat.blend" id="1_awoqn"]
+
+[node name="propHat" type="Node3D" unique_id=1740081865]
+
+[node name="propellorHat" parent="." unique_id=254425543 instance=ExtResource("1_awoqn")]

@@ -15,3 +15,8 @@ func _on_exit_pressed() -> void:
 	get_parent().get_parent().exitShrimpBooth()
 	shrimpInQuestion.global_position = Vector3(2,4,5)
 	shrimpInQuestion.noMove = false
+
+
+func _on_item_list_item_selected(index: int) -> void:
+	if index == 0:
+		shrimpInQuestion.givePropHat()

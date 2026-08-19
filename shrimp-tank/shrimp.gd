@@ -97,3 +97,11 @@ func makeNameVisible():
 func _on_name_timeout_timeout() -> void:
 	if localMesh!=null:
 		localMesh.queue_free()
+
+func givePropHat():
+	var prop = preload("res://prop_hat.tscn")
+	var localProp = prop.instantiate()
+	add_child(localProp)
+	localProp.scale = Vector3(0.5,0.5,0.5)
+	localProp.position = Vector3(0,1.2,0)
+	
